@@ -1,38 +1,231 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+html,
+body {
+  min-height: 100%;
+  background: #fff;
+  color: #000;
+}
+/* sets the body height of the browser, so that backgrounds and div heights work correctly. Color and background will almost certainly be altered; they are just placeholders */
+
+body {
+  font-size: 1.4rem;
+  text-rendering: optimizeLegibility;
+}
+/* sets the base font size for the document; turns on kerning pairs and ligatures */
+
+body,
+ul,
+ol,
+dl {
+  margin: 0;
+}
+article,
+aside,
+audio,
+footer,
+header,
+nav,
+section,
+video {
+  display: block;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ensures that older browsers will display HTML5 elements correctly */
+
+h1 {
+  font-size: 1.4rem;
+}
+/* begins to set up font sizes relative to base rem – h1 has been used as an example */
+
+p {
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+/* sets hyphenation by default on paragraphs */
+
+textarea {
+  resize: vertical;
+}
+/* changes textarea resizing from "both" (UA default) to vertical only */
+
+table {
+  border-collapse: collapse;
+}
+td {
+  padding: 0.5rem;
+}
+/* causes tables to actually look like tables */
+
+img {
+  border: none;
+  max-width: 100%;
+}
+/* removes outlines from linked images (for older browsers and IE), sets up images for responsive design layout */
+
+input[type="submit"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner {
+  border: 0px;
+}
+/* removes the inner border effect from focused buttons for form elements in Firefox */
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+}
+input[type="submit"] {
+  -webkit-appearance: none;
+}
+/* removes the OS X appearance from HTML5 search inputs and submit buttons when viewed in Safari */
+
+input:required:after {
+  color: #f00;
+  content: " *";
+}
+/* sets up required form fields with the conventional following red asterix */
+input[type="email"]:invalid {
+  background: #f00;
+}
+/* causes a visual alert in browsers that do client-side checking of HTML5 email field – this may already be the default in some browsers. */
+
+.right {
+  float: right;
+  margin-left: 2rem;
+  clear: right;
+}
+.left {
+  float: left;
+  margin-right: 2rem;
+  clear: left;
+}
+/* allows a quick shortcut for floating elements left and right while avoiding the “float quirk” problem */
+
+sub,
+sup {
+  line-height: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* removes the default line height from sub and sup elements */
+
+/* Path: src\app.css */
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  margin: 10px auto;
+}
+
+.searchbox {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  height: 80px;
+  align-items: center;
+}
+
+.searchbox svg {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 24px;
+  fill: #a6d5f2;
+}
+
+.searchbox input {
+  width: 100%;
+  height: 66px;
+  padding: 1rem 1rem 1rem 3rem;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 400;
+  color: #283f4d;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+}
+
+button {
+  height: 66px;
+  width: 200px;
+  border: none;
+  outline: none;
+  background: #a6d5f2;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-left: 20px;
+}
+
+button:hover {
+  background: #283f4d;
+}
+
+.searchbox input:focus {
+  outline: 2px solid #a6d5f2;
+}
+
+.searchbox input:hover {
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.searchbox input::placeholder {
+  color: #a6d5f2;
+}
+
+.weather_card {
+  background: linear-gradient(105.43deg, #00dafe 0%, #00a9cc 100%);
+  border-radius: 6px;
+  margin-top: 10px;
+  padding: 30px;
+}
+
+.location_details {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.date_time {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.9;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.location svg {
+  height: 18px;
+  width: 18px;
+  fill: #006173;
+  margin-right: 2px;
+}
+
+.location span {
+  color: #000000ba;
+  font-size: 18px;
+  font-weight: 500;
 }
